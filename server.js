@@ -1,6 +1,13 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
+
+// add new projects page to website
+// later this can page can link to github projects
+// /projects - view file
+// add header, footer & site do a message saying portfolio here
+// inside of header add new link for projects page
+
 const app = express();
 const port = process.env.PORT || 3001;
 hbs.registerPartials(__dirname+'/views/partials')
@@ -42,6 +49,12 @@ app.get('/', (req, res)=>{
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
         pageTitle: 'about page'
+    });
+});
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'project page',
+        message: 'portfolio coming soon'
     });
 });
 app.get('/bad', (req, res) =>{
